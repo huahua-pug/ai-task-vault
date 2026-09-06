@@ -70,3 +70,26 @@
 | B10 | Synergistic effects of sustained loading and wetting–drying cycles on strength and microstructure of slag–cement-stabilized marine soft soil | Xia Changqing | Acta Geotechnica · 2026 · 在线 | 1区 | 10.1007/s11440-026-03212-1 | 持续荷载+干湿循环耦合下矿渣-水泥固化海相软土的强度与微观 | 矿渣基固化土多因素耦合的强度与微观演化 | 非开源 |
 
 **累计：20/30 篇。** 期刊构成（批次B）：CCB×5、Acta Geotechnica×3、Engineering Geology×1、Journal of Cleaner Production×1。
+
+## 子任务4 · 检索批次C：耐久性（硫酸盐侵蚀/冻融循环）与低碳全固废固化 · 2026-09-06
+
+检索与核验：Crossref API 8 组主题查询（限 2023-09 之后、一区期刊白名单）得 27 篇候选 → 剔除批次A/B已选 5 篇、金色/混合 OA 5 篇（含主题最契合的 Qi 2026 JRMGE 三元全固废、Mu 2025 JRMGE 低碳碳化、Luo K. 2026 CCC one-part 地聚物）、非一区与主题不符 7 篇 → 保留 10 篇，全部 Unpaywall is_oa=false。
+
+| # | 标题 | 第一作者 | 期刊·年·卷·文章号 | 分区 | DOI | 核心内容 | 与本文关联 | 开源 |
+|---|------|---------|------------------|------|-----|----------|-----------|------|
+| C1 | Strength and microscopic pore structure characterization of cement-fly ash stabilized organic soil under freeze-thaw cycles | Shi Xin | Constr Build Mater · 2024 · 420 · 135635 | 1区Top | 10.1016/j.conbuildmat.2024.135635 | 冻融循环下水泥-粉煤灰固化有机土强度与微观孔结构 | 粉煤灰固化土冻融损伤与孔结构，对应本文粉煤灰界面薄弱区机制 | 非开源 |
+| C2 | Performance of heterogeneous cement-based stabilized soft clay under cyclic freeze-thaw environments | Zhan Shaohu | Constr Build Mater · 2025 · 499 · 144022 | 1区Top | 10.1016/j.conbuildmat.2025.144022 | 循环冻融环境下非均质水泥基固化软土性能 | 固化软土冻融性能演化规律 | 非开源 |
+| C3 | Investigating on dynamic and static mechanical characteristics and microscopic mechanism of fiber-reinforced and rubberized cement stabilized soil under dry-wet cycle sulfate erosion | Ding Jinmeng | Constr Build Mater · 2025 · 487 · 142083 | 1区Top | 10.1016/j.conbuildmat.2025.142083 | 干湿循环+硫酸盐侵蚀下改性水泥土动静力学与微观机理 | 硫酸盐侵蚀劣化路径（对应本文石膏+钙矾石双通道） | 非开源 |
+| C4 | Effect of chloride ion erosion on alkali-activated solid waste-based stabilized soil: macro deterioration and microstructure evolution | Jia Jinming | Constr Build Mater · 2026 · 531 · 146623 | 1区Top | 10.1016/j.conbuildmat.2026.146623 | 氯盐侵蚀下碱激发固废固化土宏观-微观关联 | 同为碱激发固废固化土的耐侵蚀性能 | 非开源 |
+| C5 | Effect of glass fiber (GF) on the mechanical properties and freeze-thaw (F-T) durability of lime-nanoclay (NC)-stabilized marl clayey soil | Salimi Mahdi | Constr Build Mater · 2024 · 416 · 135227 | 1区Top | 10.1016/j.conbuildmat.2024.135227 | 玻璃纤维对石灰-纳米黏土固化泥灰土冻融耐久性的影响 | 固化土冻融耐久性增强策略 | 非开源 |
+| C6 | Effect of humic acid and fulvic acid on mechanical and durability properties of geopolymer stabilized soft soil | Luo Zhengdong | Constr Build Mater · 2023 · 409 · 133875 | 1区Top | 10.1016/j.conbuildmat.2023.133875 | 腐殖酸/富里酸对地聚物固化软土力学与耐久性的影响 | 有机质干扰地聚物固化软土（软土环境因素） | 非开源 |
+| C7 | Effect of organic matter on the stabilization of dredged sediment using waste-activated ground granulated blastfurnace slag | Meng Ranqi | Constr Build Mater · 2026 · 522 · 146206 | 1区Top | 10.1016/j.conbuildmat.2026.146206 | 有机质对废弃活化矿渣固化疏浚底泥的影响 | 矿渣基固化疏浚土+有机质干扰机理 | 非开源 |
+| C8 | Sustainable subgrade application of dredged sediment stabilized with solid waste-based supersulfated cement: Strength, water stability, and micro-mechanisms | Lang Lei | Constr Build Mater · 2026 · 542 · 148022 | 1区Top | 10.1016/j.conbuildmat.2026.148022 | 固废基过硫水泥固化疏浚底泥用于路基：强度、水稳定性与微观 | 全固废基过硫水泥体系（近SSF全固废理念）+水稳定性 | 非开源 |
+| C9 | Direct incorporation of categorical geotechnical variables in CatBoost-based prediction of UCS of stabilized saline soils under freeze–thaw cycles | Ahmadi Hadi | Engineering Geology · 2026 · 373 · 109041 | 1区 | 10.1016/j.enggeo.2026.109041 | 融合类别岩土变量的CatBoost预测冻融下固化盐渍土UCS | 冻融环境下固化土强度智能预测 | 非开源 |
+| C10 | Shear strength of biopolymer amended soil under freeze-thaw cycles: Experimental investigation and DEM modeling | Gu Jiayu | Engineering Geology · 2025 · 353 · 108108 | 1区 | 10.1016/j.enggeo.2025.108108 | 冻融循环下生物聚合物改良土抗剪强度试验与DEM模拟 | 冻融循环下改良土强度演化与细观模拟 | 非开源 |
+
+**备注**：3 篇主题与本文 SSF 体系最契合的论文因开源（Unpaywall is_oa=true）未纳入——若用户接受开源论文可替换加入：Qi 2026 JRMGE（三元全固废胶凝材料固化疏浚土，doi:10.1016/j.jrmge.2025.05.024）、Mu 2025 JRMGE（废混凝土低碳固化剂碳化固铅，doi:10.1016/j.jrmge.2024.07.008）、Luo K. 2026 CCC（疏浚海泥+贝壳废弃物共煅烧 one-part 地聚物，doi:10.1016/j.cemconcomp.2026.106701）。
+
+**累计：30/30 篇。** 期刊总构成：CCB×21、Acta Geotechnica×3、Engineering Geology×3、JCLP×1、JRMGE×1（wait — JRMGE 为0，此行更正为 CCB×21 + Acta Geotech×3 + Eng Geol×4 + JCLP×1 + CCC×1 = 30）。—— 见下方更正行
+
+更正：批次构成 A(8×CCB+1×EngGeol+1×ActaGeotech)、B(5×CCB+3×ActaGeotech+1×EngGeol+1×JCLP)、C(8×CCB+2×EngGeol)；合计 CCB×21、Acta Geotechnica×4、Engineering Geology×4、Journal of Cleaner Production×1，共 30 篇。
