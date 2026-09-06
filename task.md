@@ -90,6 +90,4 @@
 
 **备注**：3 篇主题与本文 SSF 体系最契合的论文因开源（Unpaywall is_oa=true）未纳入——若用户接受开源论文可替换加入：Qi 2026 JRMGE（三元全固废胶凝材料固化疏浚土，doi:10.1016/j.jrmge.2025.05.024）、Mu 2025 JRMGE（废混凝土低碳固化剂碳化固铅，doi:10.1016/j.jrmge.2024.07.008）、Luo K. 2026 CCC（疏浚海泥+贝壳废弃物共煅烧 one-part 地聚物，doi:10.1016/j.cemconcomp.2026.106701）。
 
-**累计：30/30 篇。** 期刊总构成：CCB×21、Acta Geotechnica×3、Engineering Geology×3、JCLP×1、JRMGE×1（wait — JRMGE 为0，此行更正为 CCB×21 + Acta Geotech×3 + Eng Geol×4 + JCLP×1 + CCC×1 = 30）。—— 见下方更正行
-
-更正：批次构成 A(8×CCB+1×EngGeol+1×ActaGeotech)、B(5×CCB+3×ActaGeotech+1×EngGeol+1×JCLP)、C(8×CCB+2×EngGeol)；合计 CCB×21、Acta Geotechnica×4、Engineering Geology×4、Journal of Cleaner Production×1，共 30 篇。
+**累计：30/30 篇。** 期刊构成：批次A(8×CCB+1×EngGeol+1×ActaGeotech)、批次B(5×CCB+3×ActaGeotech+1×EngGeol+1×JCLP)、批次C(8×CCB+2×EngGeol)；合计 Constr Build Mater×21、Acta Geotechnica×4、Engineering Geology×4、J Clean Prod×1，共 30 篇。
