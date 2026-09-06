@@ -51,3 +51,22 @@
 备选池（后续批次有缺口时启用）：Yao Q. 2024 CCB 138242（XGBoost预测固废-水泥固化黏土UCS，closed）；Zhang S. 2023 JOBE 107351（GGBS疏浚淤泥CLSM，closed，JOBE分区待核实）；Shaji S. 2024 CCB 137460（蛋壳石灰+稻壳灰固化软土，closed）。
 
 **累计：10/30 篇。**
+
+## 子任务3 · 检索批次B：固废活化剂（电石渣/碱渣/赤泥/石灰基）与微观机理 · 2026-09-06
+
+检索与核验：Crossref API 8 组主题查询（限 2023-09 之后、一区期刊白名单）得 27 篇候选 → 剔除批次A已选 7 篇、金色 OA 5 篇（JRMGE 两篇、Soils and Foundations 三篇）、非一区 1 篇 → 保留 10 篇，全部 Unpaywall is_oa=false。氯盐侵蚀一篇（Jia 2026 CCB 146623，closed）留作批次C。
+
+| # | 标题 | 第一作者 | 期刊·年·卷·页/文章号 | 分区 | DOI | 核心内容 | 与本文关联 | 开源 |
+|---|------|---------|---------------------|------|-----|----------|-----------|------|
+| B1 | Effect of soda residue on Skeleton formation and strength development in soil stabilization | Wei Wei | Eng Geol · 2026 · 362 · 108518 | 1区 | 10.1016/j.enggeo.2025.108518 | 碱渣对固化土骨架形成与强度发展的作用机理 | 同用碱渣（Soda residue）组分，直接对应本文双激发剂之一 | 非开源 |
+| B2 | Multiscale experimental analysis of marine clay stabilized with coal gangue–calcium carbide residue geopolymer | Li Jianfeng | Acta Geotechnica · 2023 · 18 · 5921-5939 | 1区 | 10.1007/s11440-023-02055-4 | 煤矸石-电石渣地聚物固化海相黏土的多尺度试验 | 电石渣基地聚物+海相软土，XRD/SEM/MIP多尺度微观 | 非开源 |
+| B3 | Treating sulfate-bearing soil by using sodium silicate and NaOH-activated ground granulated blast-furnace slag | Li Wentao | Acta Geotechnica · 2023 · 19 · 3129-3138 | 1区 | 10.1007/s11440-023-02097-8 | 水玻璃+NaOH激发矿渣处理含硫酸盐土 | 激发剂类型调控（对应本文激发剂配比）+硫酸盐环境 | 非开源 |
+| B4 | Study on the solidification/stabilization of cadmium-contaminated soil by red mud-assisted blast furnace slag under excitation conditions | Chen Tao | J Clean Prod · 2024 · 435 · 140505 | 1区Top | 10.1016/j.jclepro.2023.140505 | 赤泥辅助矿渣在不同激发条件下固化/稳定化镉污染土 | 固废+激发条件优化，拓展污染土S/S应用 | 非开源 |
+| B5 | Mechanical and microstructural analysis of soft kaolin clay stabilized by GGBS and dolomite-based geopolymer | Gupta Sanjoli | Constr Build Mater · 2024 · 421 · 135702 | 1区Top | 10.1016/j.conbuildmat.2024.135702 | 矿渣+白云石基地聚物固化软高岭土的力学与微观 | 碱激发矿渣固化软土+C-S-H/C-A-S-H微观分析 | 非开源 |
+| B6 | Investigation of geotechnical and microstructure characteristics of gypsum soil using GGBS, fly ash, and lime | Parhizkar Amir | Constr Build Mater · 2024 · 418 · 135358 | 1区Top | 10.1016/j.conbuildmat.2024.135358 | 矿渣+粉煤灰+石灰三元固化石膏质土的岩土与微观特性 | 矿渣-粉煤灰-石灰三元组合接近SSF前驱体思路 | 非开源 |
+| B7 | Role of Bayer red mud and phosphogypsum in cement-stabilized dredged soil with different water and cement contents | Wan Xing | Constr Build Mater · 2024 · 418 · 135396 | 1区Top | 10.1016/j.conbuildmat.2024.135396 | 拜耳赤泥+磷石膏在不同水/胶凝含量下对水泥固化疏浚土的作用 | 固废组分调控+含水率影响（对应本文含水率变量） | 非开源 |
+| B8 | Strength and microstructure characteristics of red-bed weathered residual soil stabilized by Titanium Gypsum-Cement | Huang Kai | Constr Build Mater · 2023 · 403 · 133071 | 1区Top | 10.1016/j.conbuildmat.2023.133071 | 钛石膏-水泥固化红壤残积土的强度与微观结构 | 工业石膏固废改性固化土的强度-微观关联 | 非开源 |
+| B9 | Stabilization/solidification of composite heavy metal contaminated soil using a novel red mud-slag based geopolymer (RM-SGP): Performance and mechanisms | Zhou Lu | Constr Build Mater · 2025 · 486 · 141996 | 1区Top | 10.1016/j.conbuildmat.2025.141996 | 赤泥-矿渣地聚物固化/稳定化复合重金属污染土的性能与机理 | 赤泥-矿渣地聚物凝胶产物机理（C-A-S-H/N-A-S-H） | 非开源 |
+| B10 | Synergistic effects of sustained loading and wetting–drying cycles on strength and microstructure of slag–cement-stabilized marine soft soil | Xia Changqing | Acta Geotechnica · 2026 · 在线 | 1区 | 10.1007/s11440-026-03212-1 | 持续荷载+干湿循环耦合下矿渣-水泥固化海相软土的强度与微观 | 矿渣基固化土多因素耦合的强度与微观演化 | 非开源 |
+
+**累计：20/30 篇。** 期刊构成（批次B）：CCB×5、Acta Geotechnica×3、Engineering Geology×1、Journal of Cleaner Production×1。
