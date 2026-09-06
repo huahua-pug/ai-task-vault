@@ -4,7 +4,7 @@
 
 ## 子任务列表
 
-- [未完成] 子任务1：盘点全量 PDF，建立 PII→标题/DOI/期刊/年份 索引（data/fem_index.csv）
+- [已完成] 子任务1：盘点全量 PDF，建立索引（data/fem_index.csv，47篇）
 - [未完成] 子任务2：批次J（Journal of Computational Physics，17篇）逐篇精读
 - [未完成] 子任务3：批次C（CMAME，8篇）逐篇精读
 - [未完成] 子任务4：批次F（Finite Elements in Analysis and Design，7篇）逐篇精读
