@@ -91,3 +91,11 @@
 **备注**：3 篇主题与本文 SSF 体系最契合的论文因开源（Unpaywall is_oa=true）未纳入——若用户接受开源论文可替换加入：Qi 2026 JRMGE（三元全固废胶凝材料固化疏浚土，doi:10.1016/j.jrmge.2025.05.024）、Mu 2025 JRMGE（废混凝土低碳固化剂碳化固铅，doi:10.1016/j.jrmge.2024.07.008）、Luo K. 2026 CCC（疏浚海泥+贝壳废弃物共煅烧 one-part 地聚物，doi:10.1016/j.cemconcomp.2026.106701）。
 
 **累计：30/30 篇。** 期刊构成：批次A(8×CCB+1×EngGeol+1×ActaGeotech)、批次B(5×CCB+3×ActaGeotech+1×EngGeol+1×JCLP)、批次C(8×CCB+2×EngGeol)；合计 Constr Build Mater×21、Acta Geotechnica×4、Engineering Geology×4、J Clean Prod×1，共 30 篇。
+
+## 子任务5 · 汇总30篇制成文献表格并交付 · 2026-09-06
+
+- 产出文件：C:\Users\zhang\OneDrive\文档\SSF固化软土_一区近三年非开源相关文献30篇.xlsx
+  - Sheet1「文献清单30篇」：序号/批次/论文标题/作者/期刊/年份/卷/文章号/中科院大类分区/DOI/核心研究内容/与本文关联/开源状态（13列×30行）
+  - Sheet2「检索说明」：基准论文、时间范围、一区与非开源口径、检索流程、期刊构成、3篇高契合OA备选（含DOI）、分区复核提示
+- 对话内同步输出完整30篇Markdown表格
+- 质量口径：30篇全部 Unpaywall is_oa=false（非开源）；全部为中科院大类1区期刊（Constr Build Mater×21、Acta Geotechnica×4、Engineering Geology×4、J Clean Prod×1）；发表时间 2023-09~2026-09
