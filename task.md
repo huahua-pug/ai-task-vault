@@ -18,3 +18,12 @@
 **检索口径**：OpenAlex works，filter=title_and_abstract.search:{关键词}+primary_location.source.issn:{组}|+is_oa:false+publication_year:2015-2026+type:article|review；按相关性排序，cursor分页（per-page=200）；分区标注一区/二区组；时间窗兼顾现代软件生态（学习用途）。
 
 **管道测试结论**：OpenAlex返回结构确认（display_name/doi/authorships/primary_location/cited_by_count可选裁剪）；cursor=*翻页正常；title_and_abstract.search精度良好（默认search混入大量噪声，弃用）；每页200条、抓取间隔≥0.3s；期刊组以ISSN OR列表过滤，分类以后处理标注。
+
+## 子任务2 · 电磁耦合主库批量拉取与分桶 · 2026-09-06
+
+- 抓取：28 组 OpenAlex 查询（title_and_abstract.search × ISSN 组 × is_oa:false × 2015-2026 × article|review），relevance_score 降序，per-page=200 cursor 翻页，原始页 JSON 共 32 个
+- 去重合并：DOI 去重（缺失 DOI 用标题归一化兜底，实测 0 篇缺 DOI）；跨桶先到先得；桶内按查询优先序截断配额
+- 结果：**781/800 篇**（A方法学110、B电磁-结构110、C电磁-热130、D电机设备250、E高频波动103/120、F屏蔽EMC等78/80；E/F池子偏小为唯一缺口）
+- 期刊分布 TOP：TIE×318、T-Mag×92、TGRS×52、ATE×44、EABE×42、TPEL×40、IJHMT×36、JCP×34、MSSP×27、CMAME×21
+- 样本抽查：各桶主题命中良好（A=数值方法、B=电磁成形、C=感应加热、D=电机FEM、E=电磁正演反演、F=屏蔽建模），无 DOI 缺失
+- 快照：data/em_corpus_snapshot.csv（bucket/zone/year/journal/first_author/n_authors/cited/type/doi/title）
