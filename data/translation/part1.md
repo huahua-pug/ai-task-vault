@@ -1,6 +1,6 @@
 # Symplectic Hamiltonian finite element methods for electromagnetics（英中对照·分片1：摘要与引言）
 
-说明：本对照文档以作者预印版（MIT，40页）为母本。数学公式不逐字誊抄，以 ⟨公式(编号)⟩ 指向原文；术语首次出现时括注英文。
+说明：本对照文档以作者预印版（MIT，40页）为母本。数学公式不逐字誊抄，以 〈公式(编号)〉 指向原文；术语首次出现时括注英文。
 
 ## Abstract｜摘要
 
@@ -8,9 +8,9 @@
 
 [中] 我们提出一种一般性构造框架，用于为麦克斯韦方程组设计高精度有限元方法。该框架基于麦克斯韦方程组的两种不同哈密顿结构：其一是以电场与磁场表示的标准形式；其二是把标准形式改写为以电场与磁（矢）势场表示的类波动形式。对每一种哈密顿结构，我们分别用混合有限元方法、间断伽辽金（DG）方法与可杂交间断伽辽金（HDG）方法对麦克斯韦方程组作空间离散，得到继承原方程哈密顿结构的半离散方程组。
 
-[EN] We discretize the resulting semi-discrete system in time by using a symplectic integrator to ensure the conservation properties of the fully discrete system of equations. We show that the methods provide time-invariant, non-drifting approximations of the total electric, magnetic charges, and the total energy. There is a Symplectic DG method for the first formulation [J. Sci. Comput. 35, pp. 241–265, 2008] but all other methods are new. We show that there are no Symplectic HDG methods for the first formulation. In contrast, we devise Symplectic Hamiltonian mixed, DG, and HDG methods for the second formulation.
+[EN] We discretize the resulting semi-discrete system in time by using a symplectic integrator to ensure the conservation properties of the fully discrete system of equations. We show that the methods provide time-invariant, non-drifting approximations of the total electric, magnetic charges, and the total energy. There is a Symplectic DG method for the first formulation [J. Sci. Comput. 35, pp. 241-265, 2008] but all other methods are new. We show that there are no Symplectic HDG methods for the first formulation. In contrast, we devise Symplectic Hamiltonian mixed, DG, and HDG methods for the second formulation.
 
-[中] 随后用辛积分器对半离散系统作时间离散，以保证全离散方程组的守恒性质。我们证明这些方法对总电荷（电与磁）与总能量给出时间不变、无漂移的逼近。对第一种（E-H）形式，此前已有辛 DG 方法（Xu–van der Vegt–Bokhove, 2008），但其余方法均为本文首创；我们还证明：**对第一种形式不存在辛 HDG 方法**。与此相对，对第二种（E-A）形式，我们构造出了辛哈密顿混合、DG 与 HDG 全套方法。
+[中] 随后用辛积分器对半离散系统作时间离散，以保证全离散方程组的守恒性质。我们证明这些方法对总电荷（电与磁）与总能量给出时间不变、无漂移的逼近。对第一种（E-H）形式，此前已有辛 DG 方法（Xu-van der Vegt-Bokhove, 2008），但其余方法均为本文首创；我们还证明：**对第一种形式不存在辛 HDG 方法**。与此相对，对第二种（E-A）形式，我们构造出了辛哈密顿混合、DG 与 HDG 全套方法。
 
 [EN] For the Symplectic HDG method, we present numerical experiments which confirm its optimal orders of convergence for all variables and its conservation properties for the total linear and angular momenta, the electric and magnetic charges, as well as the total energy. Finally, we discuss the extension of our results to other boundary conditions and to numerical schemes defined by different weak formulations.
 
@@ -26,9 +26,9 @@
 
 [中] 系列前两篇分别处理声波方程（2017）与线弹性动力学方程（2021）：前者首次给出离散能量恒定或无漂移的声波 HDG 方法；后者首次给出同时守恒全局线动量与角动量、且离散能量恒定或无漂移的线弹性动力学 HDG 方法。
 
-[EN] In this paper, we continue this effort and develop SH finite element methods for the Maxwell's equations in a polyhedral domain Ω: ⟨公式(1a)–(1f)：ε ∂ₜE = ∇×H − J；μ ∂ₜH = −∇×E；∇·(εE)=ρ；∇·(μH)=0；边界条件 n×E=g_E；初始条件 E=E₀, H=H₀⟩. Here E and H are the electric and magnetic fields; ρ and J the scalar charge density and vector current density; ε and μ the electric permittivity and magnetic permeability, assumed positive and time-independent. The speed of light is c := 1/√(εμ).
+[EN] In this paper, we continue this effort and develop SH finite element methods for the Maxwell's equations in a polyhedral domain Ω: 〈公式(1a)-(1f)：ε ∂E/∂t = ∇×H - J；μ ∂H/∂t = -∇×E；∇·(εE)=ρ；∇·(μH)=0；边界条件 n×E=g_E；初始条件 E=E0, H=H0〉. Here E and H are the electric and magnetic fields; ρ and J the scalar charge density and vector current density; ε and μ the electric permittivity and magnetic permeability, assumed positive and time-independent. The speed of light is c := 1/√(εμ).
 
-[中] 本文延续该研究路线，对多面体区域 Ω 上的麦克斯韦方程组发展 SH 有限元方法：⟨公式(1a)–(1f)⟩。其中 E、H 为电磁场，ρ、J 为标量电荷密度与矢量电流密度，ε、μ 为（正的、不依赖时间的）介电常数与磁导率，光速 c := 1/√(εμ)。
+[中] 本文延续该研究路线，对多面体区域 Ω 上的麦克斯韦方程组发展 SH 有限元方法：〈公式(1a)-(1f)〉。其中 E、H 为电磁场，ρ、J 为标量电荷密度与矢量电流密度，ε、μ 为（正的、不依赖时间的）介电常数与磁导率，光速 c := 1/√(εμ)。
 
 [EN]（Table 1：电磁量词汇表）The SH finite element methods devised herein are of arbitrary order of accuracy and are able to approximate well the integral over Ω of each of the quantities in the rich set of conservation laws of the Maxwell's equations listed on Table 2: the linear functionals of total magnetic charge ∫∇·(μH) and total electric charge ∫∇·(εE), and the quadratic functionals of total electromagnetic energy, total linear and angular electromagnetic momenta, total optical chirality χ, its flux X, and the flux of its flux — the latter related to Lipkin's rank-three zilch tensor (1964).
 
@@ -42,17 +42,17 @@
 
 [中] 本文格式并非第一个保持离散总电磁能量恒定的格式——早在 1960 年代中期的 Yee 时域有限差分（FDTD）格式、以及守恒型分裂 FDTD 格式都能做到。但 SH 有限元方法保持的是原偏微分方程哈密顿结构的离散版本，因而可以系统性地研究表 2 中各泛函的逼近问题。辛时间积分用于哈密顿 ODE 由来已久；对麦克斯韦方程组也有基于有限差分/有限体积的辛格式，但本文是**首批将混合法、DG 与 HDG 用于麦克斯韦方程组的 SH 方法**。
 
-[EN]（与 Fu–Shu 2019 的比较）In the recent work on new DG discretizations of linear, symmetric hyperbolic systems which conserve exactly the energy, the methods rely on high-order accurate energy-conserving time-marching methods whereas our methods rely on symplectic methods. Also, those methods use twice as many variables as ours. On the other hand, our methods can only be applied to equations with Hamiltonian structure, whereas theirs can be applied to any linear, symmetric hyperbolic system.
+[EN]（与 Fu-Shu 2019 的比较）In the recent work on new DG discretizations of linear, symmetric hyperbolic systems which conserve exactly the energy, the methods rely on high-order accurate energy-conserving time-marching methods whereas our methods rely on symplectic methods. Also, those methods use twice as many variables as ours. On the other hand, our methods can only be applied to equations with Hamiltonian structure, whereas theirs can be applied to any linear, symmetric hyperbolic system.
 
-[中]（与 Fu–Shu 2019 的比较）近期有针对线性对称双曲系统（含麦克斯韦方程）的严格能量守恒 DG 离散：它们依赖高精度能量守恒时间推进，而本文依赖辛方法；且那些方法所需变量数是本文的两倍。反过来说，本文方法只适用于具有哈密顿结构的方程，而 Fu–Shu 方法适用于任何线性对称双曲系统——两者互有短长。
+[中]（与 Fu-Shu 2019 的比较）近期有针对线性对称双曲系统（含麦克斯韦方程）的严格能量守恒 DG 离散：它们依赖高精度能量守恒时间推进，而本文依赖辛方法；且那些方法所需变量数是本文的两倍。反过来说，本文方法只适用于具有哈密顿结构的方程，而 Fu-Shu 方法适用于任何线性对称双曲系统——两者互有短长。
 
 [EN] The SH finite element schemes are devised in two ways, each associated with a different Hamiltonian structure. The first is associated with the original form of the equations (1), which we call the E-H formulation. Standard DG methods for this formulation do not make use of the Hamiltonian structure; they use the fact that the equations constitute a symmetric hyperbolic system, which naturally results in dissipative methods that do not conserve the total energy. We show how to take advantage of the Hamiltonian structure of the original Maxwell's equations: such methods can be obtained with a mixed method, or with a DG method using alternating fluxes. However, it is not possible to obtain Symplectic HDG methods for this formulation. This motivates the second way.
 
 [中] SH 有限元格式的构造有两条路径，各对应一种哈密顿结构。第一条对应方程组(1)的原始形式，称为 **E-H 形式**。该形式下的标准 DG 方法并未利用哈密顿结构，而是利用方程组构成对称双曲系统这一事实，这自然导致耗散的、不守恒总能量的方法。本文展示如何利用原始麦克斯韦方程组的哈密顿结构：用混合法、或用交替通量（alternating fluxes）的 DG 方法可以做到；但对这一形式**无法**得到辛 HDG 方法——这正是引出第二条路径的动因。
 
-[EN] The second is associated to a rewriting of the E-H formulation, which we call the E-A formulation: ⟨公式(2a)–(2e)：∂ₜA = −E；ε ∂ₜE = ∇×(μ⁻¹∇×A) − J；∇·(εE)=ρ；n×A=g_A；E=E₀, A=A₀⟩, where A is a magnetic potential (μH = ∇×A) and g_A(t) := −∫₀ᵗ g_E. The above system has a different Hamiltonian structure, associated to a wave equation for A. We shall devise a new class of mixed, DG and HDG methods providing time-invariant non-drifting approximations of the E-A formulation.
+[EN] The second is associated to a rewriting of the E-H formulation, which we call the E-A formulation: 〈公式(2a)-(2e)：∂A/∂t = -E；ε ∂E/∂t = ∇×(μ^(-1)∇×A) - J；∇·(εE)=ρ；n×A=g_A；E=E0, A=A0〉, where A is a magnetic potential (μH = ∇×A) and g_A(t) := -∫0ᵗ g_E. The above system has a different Hamiltonian structure, associated to a wave equation for A. We shall devise a new class of mixed, DG and HDG methods providing time-invariant non-drifting approximations of the E-A formulation.
 
-[中] 第二条路径对应 E-H 形式的一种改写，称为 **E-A 形式**：⟨公式(2a)–(2e)⟩，其中 A 是磁矢势（μH = ∇×A），g_A(t) := −∫₀ᵗ g_E。该系统具有不同的哈密顿结构，与 A 的波动方程相联系。我们将为此构造全新的一类混合、DG 与 HDG 方法，使 E-A 形式的逼近时间不变、无漂移。
+[中] 第二条路径对应 E-H 形式的一种改写，称为 **E-A 形式**：〈公式(2a)-(2e)〉，其中 A 是磁矢势（μH = ∇×A），g_A(t) := -∫0ᵗ g_E。该系统具有不同的哈密顿结构，与 A 的波动方程相联系。我们将为此构造全新的一类混合、DG 与 HDG 方法，使 E-A 形式的逼近时间不变、无漂移。
 
 [EN] The remaining of the paper is organized as follows. Section 2 discusses the two Hamiltonian structures; Section 3 presents the spatial discretization methods; Section 4 proves they result in ODEs with Hamiltonian structure and proves the corresponding conservation laws; Section 5 presents the fully discrete SH methods (for an HDG method for the E-A formulation); Section 6 explores convergence and conservation; Section 7 discusses other boundary conditions and weak formulations.
 
