@@ -27,3 +27,11 @@
 - 期刊分布 TOP：TIE×318、T-Mag×92、TGRS×52、ATE×44、EABE×42、TPEL×40、IJHMT×36、JCP×34、MSSP×27、CMAME×21
 - 样本抽查：各桶主题命中良好（A=数值方法、B=电磁成形、C=感应加热、D=电机FEM、E=电磁正演反演、F=屏蔽建模），无 DOI 缺失
 - 快照：data/em_corpus_snapshot.csv（bucket/zone/year/journal/first_author/n_authors/cited/type/doi/title）
+
+## 子任务3 · 其他方向库拉取与全库组装 · 2026-09-06
+
+- 抓取：5 组 OpenAlex 查询（岩土/断裂/传热/结构/数值方法 × 对应一区期刊 ISSN 组 × is_oa:false × 2015-2026），各取 1 页相关性前 200
+- 清洗：剔除 EM 库已收 DOI；非一区期刊记录剔除（IJNME/JCP 仅限电磁专业刊使用）
+- 结果：G 库 **220 篇**（岩土70、断裂与损伤35、传热40、结构与复合材料45、数值方法30）
+- 全库组装：**1001 篇**（电磁 781 + 其他 220；其中二区电磁专业刊 212 篇，符合用户确认的"电磁优先放宽"口径）；年份分布 2015-2026 均匀（39–111 篇/年）
+- 快照：data/full_corpus_snapshot.csv（bucket/sub/zone/year/journal/first_author/n_authors/cited/type/doi/title）
