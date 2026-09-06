@@ -1,0 +1,29 @@
+# 英中对照·分片2：第2章（问题表述）与第3章（辐射问题）
+
+## 2. Formulation｜第2章 问题表述
+
+### 2.1 Statement of the problem｜问题表述
+
+[EN] Consider a non-magnetic (μ(r) = μ0), isotropic material D with inhomogeneous complex relative permittivity εr(r) in an (in)homogeneous background; D may consist of disjoint bodies. The total electric field E satisfies the vector wave equation ⟨公式(1)：∇×∇×E − k_b²(r)εr(r)E = J_ext⟩, where J_ext produces the incident field E^inc (the total field in absence of the scatterer) and k_b(r) = ω²ε_bε₀μ₀ is the wavenumber of the background. The scattered field E_s = E − E^inc satisfies the Silver–Müller radiation condition ⟨公式(2)⟩; measurement points lie outside V. The inverse problem: reconstruct the complex relative permittivity from the measured scattered fields.
+
+[中] 考虑非磁性（μ(r)=μ0）、各向同性材料 D，其复相对介电常数 εr(r) 非均匀，背景介质可均匀可非均匀；D 可由多个不相连物体组成。总电场 E 满足矢量波动方程 ⟨公式(1)⟩，其中 J_ext 产生入射场 E^inc（无散射体时的总场），k_b(r) 为背景波数。散射场 E_s = E − E^inc 满足辐射条件 ⟨公式(2)⟩；测量点位于体积 V 之外。**逆问题定义**：由测得的散射场重建复相对介电常数。
+
+### 2.2 Exploiting the equivalence principle｜利用等效原理
+
+[EN] The equivalence principle: actual sources can be replaced by virtual sources producing the same fields in a specific region; it is commonly used to couple FEM and integral equations for forward scattering. Here it is exploited to decouple the inverse problem into two parts: the first deals with R³∖V, the second with V. Validity: the principle holds for lossy media; for lossless media it remains valid unless the frequency equals an interior resonance of the region enclosed by S, where the EFIE/MFIE null-spaces become non-zero — avoidable since the EFIE and MFIE null-spaces do not coincide.
+
+[中] 等效原理：真实源可以用在特定区域产生同样场的虚源替代；它常用于正向散射问题中 FEM 与积分方程的耦合。本文则用它把**逆**问题解耦成两部分：第一部分处理 R³∖V，第二部分处理 V。适用性：对有耗介质恒成立；对无耗介质，除非工作频率等于 S 所围区域的内谐振频率——此时 EFIE/MFIE 的零空间非零——但利用 EFIE 与 MFIE 零空间不重合的事实可以规避内谐振问题。
+
+[EN] The scattered-field equation shows the term −k_b²(εr−1)E on the right-hand side: the object D acts as a source of E_s. In the first part the object is removed and unknown electric/magnetic surface currents J_s, M_s are introduced on S, producing the same scattered fields outside S via the EFIE ⟨公式(3)：E_s(r) = −L(η0J_s) + K(M_s), r ∈ R³∖V⟩ with the operators L ⟨公式(4)⟩ and K ⟨公式(5)⟩ and the free-space Green's function G0 = e^{−jk0|r−r′|}/(4π|r−r′|). With Love's equivalence principle (no external sources), the currents produce non-zero fields outside V and a null field inside V, with boundary conditions ⟨公式(6)：J_s = n×H_s；公式(7)：M_s = E_s×n⟩. If exterior sources producing incident fields are considered, the surface currents relate to the total electric field instead — the equivalence principle maps any source in a domain to its complement domain through surface currents. In the second part, these currents act as impressed currents / boundary conditions: a cavity problem with inhomogeneous boundary condition ⟨公式(8)：∇×∇×E − k_b²εr E = 0 in V；公式(9)：n×∇×E = −jk0η0 J on S⟩, where J = (J_s + n×H^inc) is the total electric current on S. A scattered-field cavity formulation would cause subtractive cancellation error in shadow regions; the total-field formulation is preferred, and the Neumann boundary condition leads to symmetric FEM matrices.
+
+[中] 散射场方程右端出现 −k_b²(εr−1)E 项：物体 D 相当于产生散射场的"源"。第一部分中把物体移除，在 S 上引入未知电磁面电流 J_s、M_s，它们在 S 外产生同样的散射场——EFIE ⟨公式(3)⟩，其中算子 L ⟨公式(4)⟩、K ⟨公式(5)⟩，格林函数 G0。按 Love 等效原理（外部无源），这些电流在 V 外产生非零场、在 V 内产生零场，面上边界条件为 ⟨公式(6)(7)⟩。若考虑外部产生入射场的源，面电流则与**总**电场相联系——等效原理可理解为"把一个域中的源通过面电流映射到其补域"。第二部分中，这些电流作为激励电流/边界条件：得到带非齐次边界条件的腔体问题 ⟨公式(8)(9)⟩，其中 J = J_s + n×H^inc 为 S 上总电流。若腔体用散射场表述，阴影区总场幅度小处会出现相减相消误差，故采用**总场表述**；且电场取 Neumann 边界条件的好处是 FEM 矩阵对称。
+
+## 3. The radiation problem｜第3章 辐射问题
+
+[EN] RWG basis functions β expand the currents ⟨公式(10)：η0J_s = Σ j_l β_l；M_s = Σ m_q β_q⟩. Weighting functions w_m = δ(r−r_s) w_m^{pol} (Dirac at measurement points with polarization vectors) turn (3) into the linear system ⟨公式(12)：A^ext x = b⟩ with entries C^M ⟨公式(13)⟩, C^J ⟨公式(14)⟩, right-hand side b = w·E_s ⟨公式(15)⟩.
+
+[中] 用 RWG 基函数展开电流 ⟨公式(10)⟩；以测量点处的 Dirac 分布加权（配极化向量）作检验，把 (3) 化为线性系统 ⟨公式(12)：A^ext x = b⟩，矩阵元为 C^M ⟨公式(13)⟩、C^J ⟨公式(14)⟩，右端为测量场 b ⟨公式(15)⟩。
+
+[EN] The integral equation has analytical kernels and is ill-posed: non-radiating currents lie in its null-space. Love's principle — surface currents per (6)-(7) produce a null field inside V — eliminates non-radiating sources. Introducing an inner surface S− very close to S and taking the limit ΔS→0 with the jump relation for tangential fields yields the operator relation ⟨公式(16)：( n×K′ + ½I , n×L ; n×L , n×K′ + ½I )·(M_s, η0J_s)ᵀ = 0⟩, where K′ excludes the singular point. The radiating currents lie in the null-space of P_c and the non-radiating currents are forced to zero. A Galerkin RWG discretization gives the matrix P^c. Combining with (12): ⟨公式(17)：(A^ext* A^ext + γP^c) x = b⟩ with scaling factor γ. A*A is still ill-conditioned; Love's principle weakens the ill-posedness by changing the spectral properties, but reactive currents producing evanescent fields (unmeasurable, especially in far field) keep (17) mildly ill-conditioned — regularized by GMRES, whose Krylov subspace truncation implicitly neglects very small eigenvalues. GMRES needs only matrix-vector products, so explicit A^ext and P^c never have to be formed — enabling the MLFMM: near-field interactions by MoM, far-field interactions by MLFMM at each GMRES step, reducing complexity to O(N log N).
+
+[中] 该积分方程具解析核、本质不适定：非辐射电流位于其零空间。Love 原理（按(6)(7)定义的面电流在 V 内产生零场）可排除非辐射源。引入与 S 无限接近的内曲面 S−，取 ΔS→0 极限并结合切向场跳跃关系，得到算子关系 ⟨公式(16)⟩（K′ 为去掉奇异点的 K 算子；文献称之为"电(磁)到磁(电)边界分量映射"）。辐射电流位于 P_c 的零空间，非辐射电流被强制为零。对 (16) 做 RWG Galerkin 离散得矩阵 P^c，与 (12) 组合成 ⟨公式(17)：(A^ext* A^ext + γP^c) x = b⟩（γ 为缩放因子）。A*A 仍然病态：Love 约束通过改变谱性质**削弱**了不适定性，但产生倏逝场（尤其远场测不到）的反应性电流使 (17) 仍轻度病态——用 GMRES 正则化，其 Krylov 子空间截断隐式忽略极小特征值。GMRES 只需矩阵-向量积，因此 A^ext 与 P^c 无需显式形成——这使 MLFMM 得以使用：近耦合用 MoM、远耦合在每步 GMRES 迭代中用 MLFMM 计算，复杂度降至 O(N log N)。
