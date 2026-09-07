@@ -1,0 +1,35 @@
+# 非协调有限元区域分解方法的精度研究（英中对照·分片1：摘要、引言、表述与并行实现）
+
+体例：[EN] 原文（公式用字体安全 Unicode），[中] 汉译。
+
+## Abstract｜摘要
+
+[EN] Domain Decomposition Methods (DDM) have been widely used in CEM to tackle large-scale problems with FEM. Non-conformal DDM is more flexible (e.g., independently created meshes for different parts) but may introduce an approximation error. A thorough study of the accuracy of the solutions when using non-conformal DDM is presented. Three experiments show the verification of the implementation and that the accuracy is acceptable with different numbers of discontinuities in the propagation direction and various aspect ratios of the mesh on the interface. The results use three element shapes (tetrahedra, prisms, hexahedra) and up to order three basis functions. These studies are relevant for introducing non-conformal DDM with real problems or scalable parallel adaptive mesh techniques.
+
+[中] 区域分解方法（DDM）近年在计算电磁学（CEM）中被广泛用于 FEM 大规模问题。**非协调 DDM** 更灵活（例如支持对问题不同部分独立生成的网格），但可能引入近似误差。本文对非协调 DDM 的解的精度做了系统研究。三个实验验证了实现的正确性，并表明：在传播方向上不同数目的间断、以及界面上网格不同长宽比的情况下，精度都是可接受的。算例涵盖三种单元形状（四面体、棱柱、六面体）与最高三阶基函数。这些研究对把非协调 DDM 用于实际问题、或实现可扩展（并行意义）的自适应网格技术具有参考价值。
+
+## 1. Introduction｜引言
+
+[EN] DDM applied to FEM handles large/multiscale problems prohibitive for volumetric meshes. Non-conformal DDM adds flexibility: independently generated meshes per part (crucial for real problems), and the possibility of independent (fully parallel) adaptive refinement per subdomain — leading to non-matching grids on interfaces, avoiding mesh reconciliation procedures (data communication between processes, high impact on parallel performance). Prior branches of non-conformal DDM: (i) Optimized Schwarz Methods (OSM); (ii) Cement Element Method (CEM); (iii) FETI — closely related families. However, a study of the accuracy loss introduced by non-conformal interfaces is rarely present; the sole work showing results is [15] (two experiments: same element size per subdomain — same convergence as plain FEM; increasing electrical size with fixed subdomain size — convergence problems observed, requiring the global plane wave deflation (GPWD) technique). Hence, additional tests on EM propagation problems are presented to assess the effect of non-matching grids at interfaces.
+
+[中] DDM 使 FEM 能处理体网格难以为继的大规模/多尺度问题。**非协调 DDM** 附加灵活性：各部分可独立生成网格（对实际问题可能至关重要），且可对每个子域独立施加（计算上完全并行的）自适应加密——交界面自然出现非匹配网格，从而避开"网格和解"流程（进程间数据通信、严重影响并行性能）。非协调 DDM 三大流派：(i) 优化 Schwarz 方法（OSM）；(ii) Cement 单元法（CEM）；(iii) FETI——三者关系密切。但**非协调界面引起的精度损失**研究极少：据作者所知只有 [15]（两个实验：其一各子域单元尺寸相同、收敛性与无 DDM 的 FEM 一致；其二在子域电尺寸固定下增大问题电尺寸时出现收敛问题，为此引入全局平面波泄放 GPWD 技术）。因此本文在电磁传播问题上补充更多试验，评估界面非匹配网格的影响。
+
+## 2. Formulation｜表述
+
+[EN] Smooth domain Ω divided into n_dom disjoint subdomains; boundaries ∂Ω_i = ∂̂Ω_i ∪ Γ_ij. Non-conformality sources: independent meshing, independent adaptive refinement, or non-conformal basis sets (the latter not contemplated — compatible families used). Per-subdomain time-harmonic BVP ⟨公式(1)-(6)：∇×(1/μ_ri)(∇×E_i) − k0²ε_ri E_i = O_i；PEC/PMC/Cauchy BCs；tangential continuity n̂_i×(E_i×n̂_i) = n̂_j×(E_j×n̂_j) and n̂_i×(1/μ_ri)(∇×E_i) = −n̂_j×(1/μ_rj)(∇×E_j) on Γ_ij⟩. Direct enforcement causes convergence problems → transmission conditions ⟨公式(7)：(αI + β_i S^TE)(e_i) + j_i = (αI + β_j S^TE)(e_j) − j_j⟩ with S^TE = ∇τ×∇τ×(·), auxiliary tangential field e and current j; FOTC (β_i = 0) vs SOTC (β_i ≠ 0). Spaces ⟨公式(8)(9)：V^i = H0(curl,Ω_i)；X^i = H^{−1/2}(curlτ, ∂Ω_i)⟩; mixed-order curl-conforming basis [21]; trace space discretized with the same basis, independent DOF sets on Γ_ij and Γ_ji. Discrete Galerkin statement ⟨公式(10)(11)(12)⟩; block system ⟨公式(13)：A x = b⟩ with A_i (invertible FE blocks) and cross matrices C_ij (C_ij ≠ C_ji^T due to non-matching grids). Block-Jacobi preconditioner B_J ⟨公式(14)⟩; extracting surface unknowns gives the preconditioned surface system ⟨公式(15)(16)⟩ — interior unknowns play no role; recovery ⟨公式(17)：x_i = A_i⁻¹(b_i − Σ_{j≠i} C_ij x_j⁽ˢ⁾)⟩.
+
+[中] 光滑域 Ω 分成 n_dom 个不重叠子域；非协调性来源：独立剖分、独立自适应加密、或不同子域用不相容基函数族（后者本文不讨论——各形状用相容基函数族）。每个子域的时谐边值问题 ⟨公式(1)-(6)⟩；直接强加切向连续在非重叠 DDM 中会引发收敛问题 → 用**传输条件** ⟨公式(7)⟩：算子 S^TE = ∇τ×∇τ×，辅助变量为界面切向电场 e 与电流 j；β_i = 0 为一阶传输条件（FOTC），β_i ≠ 0 为二阶传输条件（SOTC）。函数空间 ⟨公式(8)(9)⟩；混合阶旋度协调基 [21]；迹空间用同族基函数、但 Γ_ij 与 Γ_jji 上自由度**各自独立**。离散 Galerkin 陈述 ⟨公式(10)(11)(12)⟩；块矩阵系统 ⟨公式(13)⟩——A_i 可逆 FE 块、交叉矩阵 C_ij（因界面网格不匹配 C_ij ≠ C_ji^T）。块 Jacobi 预条件 B_J ⟨公式(14)⟩；抽取表面未知量得预条件表面系统 ⟨公式(15)(16)⟩——内部未知量不起作用、可消去；最后由 ⟨公式(17)⟩ 恢复各子域解。
+
+[EN] 2.1 Parallel implementation: hybrid MPI + OpenMP; a domain mesh object (per subdomain processes) and a surface mesh object (all processes). "DDM points" connect non-matching interfaces without mesh assumptions (most flexible for triangle-quad connections): each face on Γ_ij requests evaluation points (for e_j, j_j, ∇τ×e_j at the integration order); the neighbor subdomain Ω_j evaluates them — with non-conformality one face may neighbor multiple faces, so the neighboring face is found per shared point (search restricted by BC markers and near-numbering subdomains); numerical integration of (12) via OpenMP. FEM matrices filled (thread-parallel); direct solver MUMPS factorizes A_i; surface problem solved by PETSc Bi-CGSTAB; solution recovered by (17).
+
+[中] 2.1 并行实现：MPI + OpenMP 混合；"域网格对象"（由该子域的进程持有）与"表面网格对象"（所有进程持有）。**DDM 点**连接非匹配界面——对界面网格不做任何假设（三角形与四边形连接的最灵活方式）：Γ_ij 上每个面按积分阶请求求值点（需邻居的 e_j、j_j、∇τ×e_j）；由邻居子域 Ω_j 求值——非协调时一个面可能邻接多个面，须逐共享点定位邻居面（按边界条件标记与"编号相近"的搜索策略加速）；(12) 的数值积分用 OpenMP 加速。FEM 矩阵线程并行填充；直接解法器 MUMPS 分解 A_i；表面问题用 PETSc 的 Bi-CGSTAB 求解；最后按 (17) 恢复各子域解。
+
+## 3. Numerical study｜数值研究（总览）
+
+[EN] Three experiments: (1) plane wave through an air cube split conformally (verification of implementation, convergence analysis); (2) same cube with non-conformal mesh division (accuracy loss assessment); (3) WR-90 waveguide (propagation problem, thorough quantitative study). Hierarchical second-order basis [21] unless stated; GiD for meshing; Fortran OO; Bi-CGSTAB with residual ⟨公式(18)：ε = ‖Ax−b‖₂/‖b‖₂⟩; eigenspectra via PETSc internal eigensolver.
+
+[中] 三个实验：(1) 平面波穿过对半剖分的空气立方（协调网格；验证实现正确性 + 收敛分析）；(2) 同一立方改用非协调网格剖分（评估精度损失）；(3) WR-90 波导（传播问题、系统的定量研究）。默认用 [21] 的二阶层谱基函数；GiD 建模；Fortran 面向对象；Bi-CGSTAB 残差 ⟨公式(18)⟩；特征谱由 PETSc 内置特征求解器计算。
+
+[EN] 3.1 MMS with matching meshes: 1 m cube split along Y; 50 MHz; manufactured plane-wave solution ⟨公式(19)⟩ injected through the Cauchy BC; tetrahedra (Ω₁) + prisms (Ω₂), matching interface; energy relative error ⟨公式(20)⟩; convergence slopes Ch²·⁰⁵ and Ch²·⁰⁸ (theory Ch², p = 2); no appreciable difference between subdomain and whole-domain error trends — the approximation is not affected by the decomposition (as reported in [15,18]). Eigenspectra: SOTC more clustered than FOTC (SOTC accounts for both propagating and TE evanescent interface modes) → faster convergence (Table 1: 445 vs 205 iterations at the finest mesh).
+
+[中] 3.1 协调网格 + 制造解（MMS）：1 m 立方沿 Y 对分；50 MHz；制造解 ⟨公式(19)⟩ 经 Cauchy 边界注入；Ω₁ 用四面体、Ω₂ 用棱柱、界面网格匹配；能量相对误差 ⟨公式(20)⟩；收敛斜率 Ch²·⁰⁵ 与 Ch²·⁰⁸（理论 Ch²、p = 2）；各子域与全域误差趋势无差异——**分解不影响逼近精度**（与 [15,18] 一致）。特征谱：SOTC 比 FOTC 更聚集（SOTC 同时考虑界面传播模与 TE 倏逝模）→ 迭代更快（最细网格 205 次对 445 次）。
